@@ -1,0 +1,102 @@
+RESUMEN DE PRUEBAS ECONOMÉTRICAS
+================================================================================
+
+BASE: 90 observaciones trimestrales, 2004-03-31 a 2026-06-30
+
+MUESTRA DE ENTRENAMIENTO: 82 observaciones; HOLDOUT: 8 observaciones
+
+
+1. PRUEBAS DE RAÍZ UNITARIA
+--------------------------------------------------------------------------------
+
+
+ln_pib
+                    ADF_stat     ADF_p                                           ADF_lags KPSS_stat KPSS_p ZA_break_index        ZA_break_date
+nivel              -3.263165  0.072534                                                1.0  0.288354   0.01            NaN                  NaN
+primera_diferencia -8.416081       0.0                                                0.0  0.077834    0.1            NaN                  NaN
+ZA_nivel           -3.797481  0.637451  {'1%': -5.57556, '5%': -5.07332, '10%': -4.82668}       NaN    NaN              1  2004-06-30 00:00:00
+
+
+bc_pbi
+                    ADF_stat     ADF_p                                           ADF_lags KPSS_stat KPSS_p ZA_break_index        ZA_break_date
+nivel              -2.530647  0.312813                                                0.0  0.273411   0.01            NaN                  NaN
+primera_diferencia -6.629266       0.0                                                3.0  0.022952    0.1            NaN                  NaN
+ZA_nivel           -5.295365  0.025187  {'1%': -5.57556, '5%': -5.07332, '10%': -4.82668}       NaN    NaN              0  2004-03-31 00:00:00
+
+
+ln_tc_real
+                    ADF_stat     ADF_p                                           ADF_lags KPSS_stat KPSS_p ZA_break_index        ZA_break_date
+nivel              -2.148257  0.518991                                                0.0  0.230974   0.01            NaN                  NaN
+primera_diferencia -6.415825       0.0                                                2.0  0.050089    0.1            NaN                  NaN
+ZA_nivel           -4.793345  0.109304  {'1%': -5.57556, '5%': -5.07332, '10%': -4.82668}       NaN    NaN              0  2004-03-31 00:00:00
+
+
+
+2. RUPTURAS ESTRUCTURALES: ZIVOT-ANDREWS
+--------------------------------------------------------------------------------
+
+  variable fecha_sugerida_Zivot_Andrews                                                                interpretacion
+    ln_pib                   2004-06-30 Diagnóstico de ruptura endógena; no implica por sí solo incorporar una dummy.
+    bc_pbi                   2004-03-31 Diagnóstico de ruptura endógena; no implica por sí solo incorporar una dummy.
+ln_tc_real                   2004-03-31 Diagnóstico de ruptura endógena; no implica por sí solo incorporar una dummy.
+
+
+
+3. SELECCIÓN DE REZAGOS
+--------------------------------------------------------------------------------
+
+criterio  rezago_seleccionado  rezago_final_usado
+     AIC                    1                   1
+     BIC                    1                   1
+    HQIC                    1                   1
+     FPE                    1                   1
+
+
+
+4. COINTEGRACIÓN DE JOHANSEN
+--------------------------------------------------------------------------------
+
+ r     trace  crit_90  crit_95  crit_99  rechaza_H0_5pct
+ 0 49.587112  27.0669  29.7961  35.4628             True
+ 1 10.816351  13.4294  15.4943  19.9349            False
+ 2  0.016559   2.7055   3.8415   6.6349            False
+
+
+Rango seleccionado al 5%: 1
+
+
+
+5. ESTABILIDAD CUSUM
+--------------------------------------------------------------------------------
+
+  variable  estadistico_sup_b  p_valor  critico_5  evidencia_inestabilidad_5
+    ln_pib           0.957383 0.318507       1.36                      False
+    bc_pbi           0.733768 0.654531       1.36                      False
+ln_tc_real           0.441192 0.989956       1.36                      False
+
+
+
+6. DIAGNÓSTICOS DEL MODELO
+--------------------------------------------------------------------------------
+
+Modelo: VECM
+
+Es estable: no aplica como prueba VAR
+
+
+Causalidad de Granger: BC/PBI -> ln(PBI)
+Granger causality F-test. H_0: bc_pbi does not Granger-cause ln_pib. Conclusion: fail to reject H_0 at 5% significance level.
+==============================================
+Test statistic Critical value p-value    df   
+----------------------------------------------
+        0.5910          3.885   0.443 (1, 216)
+----------------------------------------------
+
+
+Causalidad de Granger: ln(PBI) -> BC/PBI
+Granger causality F-test. H_0: ln_pib does not Granger-cause bc_pbi. Conclusion: reject H_0 at 5% significance level.
+==============================================
+Test statistic Critical value p-value    df   
+----------------------------------------------
+         6.460          3.885   0.012 (1, 216)
+----------------------------------------------

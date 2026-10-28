@@ -1,0 +1,17 @@
+,valor
+variables_endogenas,"['ln_pib', 'bc_pbi', 'ln_tc_real']"
+variables_exogenas,['covid']
+modelo,VECM
+rezagos_VAR,1
+rezagos_diferencias_VECM,0
+rango_Johansen,1
+observaciones_totales,90
+observaciones_entrenamiento,82
+observaciones_holdout,8
+inicio_entrenamiento,2004-03-31
+fin_entrenamiento,2024-06-30
+inicio_holdout,2024-09-30
+fin_holdout,2026-06-30
+covid_incluido_como_exogena,True
+períodos_covid_activos,"2020-06-30, 2020-09-30"
+ruptura_estructural,Se diagnostica con Zivot-Andrews; COVID se controla con dummy de pulso 2020-II y 2020-III.

@@ -1,0 +1,85 @@
+# Python: cachés y archivos generados localmente
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+*.egg-info/
+.eggs/
+pip-wheel-metadata/
+*.egg
+
+# Entornos virtuales
+.venv/
+venv/
+env/
+ENV/
+.env
+.env.*
+!.env.example
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# LaTeX: archivos auxiliares y documentos compilados
+latex/*.aux
+latex/*.log
+latex/*.out
+latex/*.toc
+latex/*.lof
+latex/*.lot
+latex/*.fls
+latex/*.fdb_latexmk
+latex/*.synctex.gz
+latex/*.nav
+latex/*.snm
+latex/*.vrb
+latex/*.bcf
+latex/*.run.xml
+latex/*.pdf
+
+# Resultados temporales y archivos de respaldo
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+*~
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Configuración local de editores
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.example.json
+.idea/
+
+# Cobertura, profiling y logs locales
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.prof
+*.pstats
+*.log
+
+# Secretos y credenciales
+*.pem
+*.key
+*.p12
+*.pfx
+credentials.json
+secrets.json
+

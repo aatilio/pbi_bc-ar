@@ -1,0 +1,4 @@
+variable,estadistico_sup_b,p_valor,critico_5,evidencia_inestabilidad_5
+ln_pib,0.9573825227069162,0.318506553716178,1.36,False
+bc_pbi,0.7337682850470939,0.6545308246076801,1.36,False
+ln_tc_real,0.44119204498454534,0.9899563854814067,1.36,False
