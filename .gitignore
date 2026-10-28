@@ -42,7 +42,6 @@ latex/*.snm
 latex/*.vrb
 latex/*.bcf
 latex/*.run.xml
-latex/*.pdf
 
 # Resultados temporales y archivos de respaldo
 *.tmp
