@@ -112,31 +112,31 @@ La división sigue el flujo del notebook:
 - PBI real de Argentina.
 - Balanza comercial:
 
-  \[
+$$
   BC_t=X_t-M_t
-  \]
+$$
 
 - Balanza comercial relativa:
 
-  \[
-  BC/PBI_t=\frac{BC_t}{PBI_t}
-  \]
+$$
+  (BC/PBI)_t=\frac{BC_t}{PBI_t}
+$$
 
 - Tipo de cambio real:
 
-  \[
-  \ln(TC\ real_t)
-  \]
+$$
+  \ln(TC_{\mathrm{real},t})
+$$
 
 - Dummy COVID:
 
-  \[
+$$
   COVID_t=
   \begin{cases}
   1, & \text{2020-II y 2020-III}\\
   0, & \text{en los demás periodos}
   \end{cases}
-  \]
+$$
 
 - Fuentes de información: INDEC y BCRA.
 - Periodo: 2004-I a 2026-II.
@@ -184,9 +184,9 @@ primeras diferencias.
 
 Conclusión esperada:
 
-\[
-\ln(PBI),\ BC/PBI,\ \ln(TC\ real)\sim I(1)
-\]
+$$
+\ln(PBI),\ BC/PBI,\ \ln(TC_{\mathrm{real}})\sim I(1)
+$$
 
 #### Zivot-Andrews
 
@@ -210,49 +210,49 @@ Presentar AIC, BIC, HQIC y FPE:
 
 Conclusión:
 
-\[
+$$
 p=1
-\]
+$$
 
 Para el VECM:
 
-\[
-k_{\mathrm{ar\_diff}}=p-1=0
-\]
+$$
+k_{\mathrm{ar,diff}}=p-1=0
+$$
 
 #### Johansen
 
 Explicar:
 
-\[
+$$
 H_0:r\leq r_0
-\]
+$$
 
-\[
+$$
 H_1:r>r_0
-\]
+$$
 
 Presentar:
 
 | Rango | Estadístico de traza | Valor crítico al 5% | Decisión |
 |---:|---:|---:|---|
-| \(r=0\) | 49.5871 | 29.7961 | Se rechaza \(H_0\) |
-| \(r=1\) | 10.8164 | 15.4943 | No se rechaza \(H_0\) |
-| \(r=2\) | 0.0166 | 3.8415 | No se rechaza \(H_0\) |
+| $r=0$ | 49.5871 | 29.7961 | Se rechaza $H_0$ |
+| $r=1$ | 10.8164 | 15.4943 | No se rechaza $H_0$ |
+| $r=2$ | 0.0166 | 3.8415 | No se rechaza $H_0$ |
 
 Rango seleccionado:
 
-\[
+$$
 r=1
-\]
+$$
 
 #### Justificación del VECM
 
 Explicar:
 
-- Variables \(I(0)\) → VAR en niveles.
-- Variables \(I(1)\) sin cointegración → VAR en diferencias.
-- Variables \(I(1)\) con cointegración → VECM.
+- Variables $I(0)$ → VAR en niveles.
+- Variables $I(1)$ sin cointegración → VAR en diferencias.
+- Variables $I(1)$ con cointegración → VECM.
 
 La decisión final es:
 
@@ -260,7 +260,7 @@ La decisión final es:
 Modelo: VECM
 Rango de cointegración: r = 1
 Rezago del VAR en niveles: p = 1
-Rezagos de diferencias del VECM: k_ar_diff = 0
+Rezagos de diferencias del VECM: k_{\mathrm{ar,diff}} = 0
 Variable exógena: COVID
 ```
 
@@ -297,21 +297,21 @@ Variable exógena: COVID
 
 Presentar la especificación general:
 
-\[
+$$
 \Delta Y_t=\Pi Y_{t-1}+\Psi COVID_t+\varepsilon_t
-\]
+$$
 
-Como \(k_{\mathrm{ar\_diff}}=0\), no se incluyen rezagos adicionales de las
+Como $k_{\mathrm{ar,diff}}=0$, no se incluyen rezagos adicionales de las
 primeras diferencias.
 
 #### Relación de largo plazo
 
 Presentar:
 
-\[
-\ln(PBI)+3.3005(BC/PBI)-0.2933\ln(TC\ real)
+$$
+\ln(PBI)+3.3005(BC/PBI)-0.2933\ln(TC_{\mathrm{real}})
 +\text{constante}=0
-\]
+$$
 
 Interpretar los coeficientes de largo plazo y sus p-valores.
 
@@ -319,9 +319,9 @@ Interpretar los coeficientes de largo plazo y sus p-valores.
 
 | Ecuación | Coeficiente | p-valor | Interpretación |
 |---|---:|---:|---|
-| \(\Delta\ln(PBI)\) | -0.0451 | 0.337 | No significativo |
-| \(\Delta BC/PBI\) | -0.1354 | <0.001 | Significativo |
-| \(\Delta\ln(TC\ real)\) | -0.3138 | 0.001 | Significativo |
+| $\Delta\ln(PBI)$ | -0.0451 | 0.337 | No significativo |
+| $\Delta BC/PBI$ | -0.1354 | <0.001 | Significativo |
+| $\Delta\ln(TC_{\mathrm{real}})$ | -0.3138 | 0.001 | Significativo |
 
 #### Constantes y COVID
 
@@ -329,12 +329,12 @@ Interpretar los resultados de `fitted.summary()`:
 
 | Ecuación | Término | Coeficiente | p-valor | Decisión al 5% |
 |---|---|---:|---:|---|
-| \(\ln(PBI)\) | Constante | 0.5441 | 0.332 | No significativo |
-| \(\ln(PBI)\) | COVID | -0.0304 | 0.140 | No significativo |
-| \(BC/PBI\) | Constante | 1.6159 | <0.001 | Significativo |
-| \(BC/PBI\) | COVID | 0.0036 | 0.790 | No significativo |
-| \(\ln(TC\ real)\) | Constante | 3.7387 | 0.001 | Significativo |
-| \(\ln(TC\ real)\) | COVID | 0.0192 | 0.656 | No significativo |
+| $\ln(PBI)$ | Constante | 0.5441 | 0.332 | No significativo |
+| $\ln(PBI)$ | COVID | -0.0304 | 0.140 | No significativo |
+| $BC/PBI$ | Constante | 1.6159 | <0.001 | Significativo |
+| $BC/PBI$ | COVID | 0.0036 | 0.790 | No significativo |
+| $\ln(TC_{\mathrm{real}})$ | Constante | 3.7387 | 0.001 | Significativo |
+| $\ln(TC_{\mathrm{real}})$ | COVID | 0.0192 | 0.656 | No significativo |
 
 Una constante significativa no debe interpretarse por sí sola como evidencia
 de causalidad económica.
@@ -350,16 +350,16 @@ Desarrollar:
 
 Resultados de CUSUM:
 
-- \(\ln(PBI)\): \(p=0.3185\).
-- \(BC/PBI\): \(p=0.6545\).
-- \(\ln(TC\ real)\): \(p=0.9900\).
+- $\ln(PBI)$: $p=0.3185$.
+- $BC/PBI$: $p=0.6545$.
+- $\ln(TC_{\mathrm{real}})$: $p=0.9900$.
 
 Resultados de Granger:
 
 | Dirección | p-valor | Decisión |
 |---|---:|---|
-| \(BC/PBI \rightarrow \ln(PBI)\) | 0.443 | No se rechaza \(H_0\) |
-| \(\ln(PBI) \rightarrow BC/PBI\) | 0.012 | Se rechaza \(H_0\) |
+| $BC/PBI \rightarrow \ln(PBI)$ | 0.443 | No se rechaza $H_0$ |
+| $\ln(PBI) \rightarrow BC/PBI$ | 0.012 | Se rechaza $H_0$ |
 
 La causalidad de Granger debe interpretarse como capacidad predictiva, no como
 causalidad estructural definitiva.
@@ -427,11 +427,11 @@ Resultados:
 
 | Variable | RMSE | MAE | MAPE |
 |---|---:|---:|---:|
-| \(\ln(PBI)\) | 0.0601 | 0.0595 | 0.44% |
-| \(BC/PBI\) | 0.0282 | 0.0228 | 62.26% |
-| \(\ln(TC\ real)\) | 0.1299 | 0.1006 | 2.23% |
+| $\ln(PBI)$ | 0.0601 | 0.0595 | 0.44% |
+| $BC/PBI$ | 0.0282 | 0.0228 | 62.26% |
+| $\ln(TC_{\mathrm{real}})$ | 0.1299 | 0.1006 | 2.23% |
 
-El MAPE de \(BC/PBI\) debe interpretarse con cautela porque la variable puede
+El MAPE de $BC/PBI$ debe interpretarse con cautela porque la variable puede
 acercarse a cero y cambiar de signo. Para esta variable se priorizan RMSE y
 MAE.
 
@@ -450,7 +450,7 @@ Evaluar con:
 - FEVD.
 
 Conclusión actual: existe una relación de largo plazo, pero no se encontró
-capacidad predictiva de \(BC/PBI\) hacia \(\ln(PBI)\), pues \(p=0.443\).
+capacidad predictiva de $BC/PBI$ hacia $\ln(PBI)$, pues $p=0.443$.
 
 ##### Hipótesis específica 1
 
@@ -479,16 +479,16 @@ Relacionarla con la capacidad predictiva:
 
 Resultado actual:
 
-- \(BC/PBI\) no causa predictivamente a \(\ln(PBI)\): \(p=0.443\).
-- \(\ln(PBI)\) sí causa predictivamente a \(BC/PBI\): \(p=0.012\).
+- $BC/PBI$ no causa predictivamente a $\ln(PBI)$: $p=0.443$.
+- $\ln(PBI)$ sí causa predictivamente a $BC/PBI$: $p=0.012$.
 
 ##### Resumen de decisiones
 
 | Hipótesis | Prueba principal | Resultado | Decisión |
 |---|---|---|---|
 | General | VECM, Granger, IRF y FEVD | Relación de largo plazo, sin Granger de BC hacia PBI | Según la redacción exacta |
-| Específica 1 | ADF, KPSS y ZA | Variables \(I(1)\) según el análisis conjunto | Según su formulación |
-| Específica 2 | Johansen | \(r=1\) | Se confirma la cointegración |
+| Específica 1 | ADF, KPSS y ZA | Variables $I(1)$ según el análisis conjunto | Según su formulación |
+| Específica 2 | Johansen | $r=1$ | Se confirma la cointegración |
 | Específica 3 | Granger | Dirección PBI → BC/PBI | Se confirma solo en esa dirección |
 
 ### Capítulo IV
@@ -565,9 +565,9 @@ Debe entregar primero:
 
 Debe utilizar exactamente las variables definidas por la Persona 1 y confirmar:
 
-- Integración \(I(1)\).
-- Rezago \(p=1\).
-- Rango \(r=1\).
+- Integración $I(1)$.
+- Rezago $p=1$.
+- Rango $r=1$.
 - Modelo VECM.
 
 ### Tercera etapa: Persona 3
@@ -577,7 +577,7 @@ Debe trabajar con el modelo definitivo:
 ```text
 VECM
 r = 1
-k_ar_diff = 0
+k_{\mathrm{ar,diff}} = 0
 COVID exógena
 ```
 
@@ -624,18 +624,18 @@ Rezago del VAR en niveles:
     p = 1
 
 Rezagos de diferencias:
-    k_ar_diff = 0
+    k_{\mathrm{ar,diff}} = 0
 ```
 
 ### Resultados econométricos clave
 
-- Las tres variables son \(I(1)\) según el análisis conjunto de ADF y KPSS.
+- Las tres variables son $I(1)$ según el análisis conjunto de ADF y KPSS.
 - Los cuatro criterios de información seleccionan un rezago.
-- Johansen selecciona un rango de cointegración \(r=1\).
+- Johansen selecciona un rango de cointegración $r=1$.
 - El modelo final es un VECM.
 - COVID se incorpora como variable exógena.
-- \(BC/PBI\) no causa predictivamente a \(\ln(PBI)\): \(p=0.443\).
-- \(\ln(PBI)\) causa predictivamente a \(BC/PBI\): \(p=0.012\).
+- $BC/PBI$ no causa predictivamente a $\ln(PBI)$: $p=0.443$.
+- $\ln(PBI)$ causa predictivamente a $BC/PBI$: $p=0.012$.
 - CUSUM no detecta inestabilidad estadísticamente significativa.
 
 ---
@@ -643,19 +643,19 @@ Rezagos de diferencias:
 ## 5. Reglas para evitar inconsistencias
 
 - No mencionar un VAR en niveles como modelo final.
-- No utilizar los resultados antiguos con \(r=3\).
+- No utilizar los resultados antiguos con $r=3$.
 - No cambiar las variables del sistema sin actualizar todo el análisis.
 - No cambiar el número de rezagos sin volver a estimar el modelo.
 - No interpretar Granger como causalidad estructural absoluta.
 - No afirmar que la balanza comercial no tiene ninguna relación con el PBI
-  únicamente porque \(p=0.443\).
+  únicamente porque $p=0.443$.
 - Diferenciar siempre:
   - Relación de largo plazo.
   - Causalidad predictiva.
   - Respuesta ante shocks.
   - Capacidad de pronóstico.
 - La hipótesis debe evaluarse según su redacción exacta en el Capítulo I.
-- No utilizar el MAPE de \(BC/PBI\) como único criterio de desempeño.
+- No utilizar el MAPE de $BC/PBI$ como único criterio de desempeño.
 - Revisar que todas las tablas, figuras y p-valores provengan de la misma
   ejecución del notebook.
 
@@ -665,13 +665,13 @@ Rezagos de diferencias:
 
 Cada integrante debe comprobar que su sección:
 
-- Utiliza la misma nomenclatura: \(\ln(PBI)\), \(BC/PBI\) y
-  \(\ln(TC\ real)\).
+- Utiliza la misma nomenclatura: $\ln(PBI)$, $BC/PBI$ y
+  $\ln(TC_{\mathrm{real}})$.
 - Reporta correctamente los p-valores.
 - Explica la hipótesis y la regla de decisión de cada prueba.
 - Distingue entre “se rechaza” y “no se rechaza” la hipótesis nula.
-- No utiliza la expresión “se acepta \(H_0\)”; se recomienda escribir “no se
-  rechaza \(H_0\)”.
+- No utiliza la expresión “se acepta $H_0$”; se recomienda escribir “no se
+  rechaza $H_0$”.
 - Mantiene el periodo 2004-I a 2026-II.
 - Mantiene la división 82/8 entre entrenamiento y holdout.
 - Utiliza el VECM como modelo final.
